@@ -1,13 +1,15 @@
-//
-// Created by earsu on 7/30/2026.
-//
-
-#ifndef DC_CIRCUIT_ANALYZER_CIRCUIT_H
-#define DC_CIRCUIT_ANALYZER_CIRCUIT_H
+#ifndef CIRCUIT_H
+#define CIRCUIT_H
 
 
-class circuit {
-};
+double calculate_series_resistance(
+        double r1,
+        double r2
+);
 
+double calculate_current(
+        double voltage,
+        double resistance
+);
 
-#endif //DC_CIRCUIT_ANALYZER_CIRCUIT_H
+#endif
