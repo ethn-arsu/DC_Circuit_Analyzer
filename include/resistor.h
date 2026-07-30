@@ -1,0 +1,8 @@
+//
+// Created by earsu on 7/31/2026.
+//
+
+#ifndef DC_CIRCUIT_ANALYZER_RESISTOR_H
+#define DC_CIRCUIT_ANALYZER_RESISTOR_H
+
+#endif //DC_CIRCUIT_ANALYZER_RESISTOR_H

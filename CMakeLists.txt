@@ -13,4 +13,9 @@ add_executable(
 
         src/main.c
         src/circuit.c
+        include/resistor.h
+        include/solver.h
+        src/resistor.c
+        src/solver.c
+        test/testCircuit.c
 )
