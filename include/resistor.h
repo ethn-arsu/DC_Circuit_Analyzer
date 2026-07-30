@@ -1,8 +1,16 @@
-//
-// Created by earsu on 7/31/2026.
-//
+#ifndef RESISTOR_H
+#define RESISTOR_H
 
-#ifndef DC_CIRCUIT_ANALYZER_RESISTOR_H
-#define DC_CIRCUIT_ANALYZER_RESISTOR_H
+typedef struct{
+    int id;
+    double resistance;
+} Resistor;
 
-#endif //DC_CIRCUIT_ANALYZER_RESISTOR_H
+
+// Creates a resistor object
+Resistor create_resistor(int id, double resistance);
+
+// Returns resistance value
+double get_resistance(Resistor resistor);
+
+#endif
