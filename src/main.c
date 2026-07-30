@@ -1,21 +1,28 @@
 #include <stdio.h>
-#include "circuit.h"
+
+#include "resistor.h"
 
 
-int main(){
+int main()
+{
 
-    double voltage = 12.0;
-    double r1 = 100.0;
-    double r2 = 200.0;
-    double totalResistance = calculate_series_resistance(r1,r2);
-    double current = calculate_current(voltage, totalResistance);
+    Resistor r1 =
+            create_resistor(1, 100);
 
 
-    printf("DC Circuit Analyzer\n");
-    printf("------------------\n");
-    printf("Resistance: %.2f ohms\n",totalResistance);
-    printf("Current: %.4f amps\n",
-           current);
-    
+    Resistor r2 =
+            create_resistor(2, 200);
+
+
+    printf("Resistor %d: %.2f ohms\n",
+           r1.id,
+           get_resistance(r1));
+
+
+    printf("Resistor %d: %.2f ohms\n",
+           r2.id,
+           get_resistance(r2));
+
+
     return 0;
 }
