@@ -24,3 +24,11 @@ double calculate_series_resistance(const Circuit *circuit) {
 
     return total;
 }
+
+int get_resistor_count(const Circuit* circuit) {
+    return circuit->resistorCount;
+}
+
+Resistor get_resistor(const Circuit* circuit, int index) {
+    return circuit->resistors[index];
+}
