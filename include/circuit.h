@@ -17,4 +17,8 @@ int add_resistor(Circuit *circuit,Resistor resistor);
 // Circuit calculations
 double calculate_series_resistance(const Circuit *circuit);
 
+// Accessors
+int get_resistor_count(const Circuit* circuit);
+Resistor get_resistor(const Circuit* circuit, int index);
+
 #endif
