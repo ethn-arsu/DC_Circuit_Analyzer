@@ -1,19 +1,48 @@
 #include <stdio.h>
+#include "solver.h"
 
-#include "circuit.h"
-#include "resistor.h"
-
-
-int main(){
+int main()
+{
     Circuit circuit;
+
     initialize_circuit(&circuit);
-    add_resistor(&circuit, create_resistor(1, 100));
-    add_resistor(&circuit, create_resistor(2, 220));
-    add_resistor(&circuit, create_resistor(3, 330));
 
-    printf("Number of resistors: %d\n", circuit.resistorCount);
-    printf("Equivalent series resistance: %.2f ohms\n", calculate_series_resistance(&circuit));
+    add_resistor(&circuit,
+                 create_resistor(1,100));
 
+    add_resistor(&circuit,
+                 create_resistor(2,220));
+
+    add_resistor(&circuit,
+                 create_resistor(3,330));
+
+    double voltage = 12.0;
+
+    double series =
+            solve_series_resistance(&circuit);
+
+    double parallel =
+            solve_parallel_resistance(&circuit);
+
+    double current =
+            solve_current(voltage,
+                          series);
+
+    double power =
+            solve_power(voltage,
+                        current);
+
+    printf("Series Resistance : %.2f ohms\n",
+           series);
+
+    printf("Parallel Resistance : %.2f ohms\n",
+           parallel);
+
+    printf("Current : %.4f A\n",
+           current);
+
+    printf("Power : %.4f W\n",
+           power);
 
     return 0;
 }
