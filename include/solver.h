@@ -1,8 +1,17 @@
-//
-// Created by earsu on 7/31/2026.
-//
+#ifndef SOLVER_H
+#define SOLVER_H
+#include "circuit.h"
 
-#ifndef DC_CIRCUIT_ANALYZER_SOLVER_H
-#define DC_CIRCUIT_ANALYZER_SOLVER_H
+// Equivalent resistance
+double solve_series_resistance(const Circuit *circuit);
+double solve_parallel_resistance(const Circuit *circuit);
 
-#endif //DC_CIRCUIT_ANALYZER_SOLVER_H
+// Ohm's Law
+double solve_current(double voltage, double resistance);
+double solve_voltage(double current, double resistance);
+double solve_resistance(double voltage, double current);
+
+// Power
+double solve_power(double voltage, double current);
+
+#endif
