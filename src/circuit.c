@@ -1,10 +1,26 @@
 #include "circuit.h"
 
-
-double calculate_series_resistance(double r1,double r2){
-    return r1 + r2;
+void initialize_circuit(Circuit* circuit) {
+    circuit->resistor = 0;
 }
 
-double calculate_current(double voltage,double resistance){
-    return voltage / resistance;
+int add_resistor(Circuit *circuit, Resistor resistor) {
+    if (circuit->resistorCount >= MAX_RESISTORS) {
+        return 0;
+    }
+
+    circuit->resistors[circuit->resistorCount] = resistor;
+    circuit->resistorCount++;
+
+    return 1;
+}
+
+double calculate_series_resistance(const Circuit *circuit) {
+    double total = 0.0;
+
+    for (int i = 0; i < circuit->resistorCount; i++) {
+        total += circuit->resistors[i]->resistance;
+    }
+
+    return total;
 }
