@@ -1,7 +1,7 @@
 #include "circuit.h"
 
 void initialize_circuit(Circuit* circuit) {
-    circuit->resistor = 0;
+    circuit->resistorCount = 0;
 }
 
 int add_resistor(Circuit *circuit, Resistor resistor) {
@@ -19,7 +19,7 @@ double calculate_series_resistance(const Circuit *circuit) {
     double total = 0.0;
 
     for (int i = 0; i < circuit->resistorCount; i++) {
-        total += circuit->resistors[i]->resistance;
+        total += circuit->resistors[i].resistance;
     }
 
     return total;
