@@ -3,7 +3,17 @@
 #include "resistor.h"
 #define MAX_RESISTORS 100
 
+typedef enum {
+    SERIES,
+    PARALLEL
+} CircuitType;
+
 typedef struct {
+    CircuitType type;
+    double supplyVoltage;
+    double equivalentResistance;
+    double totalCurrent;
+    double totalPower;
     Resistor resistors[MAX_RESISTORS];
     int resistorCount;
 } Circuit;
