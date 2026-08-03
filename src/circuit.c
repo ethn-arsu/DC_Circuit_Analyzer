@@ -1,12 +1,17 @@
 #include "circuit.h"
 
-void initialize_circuit(Circuit *circuit)
-{
+void initialize_circuit(Circuit *circuit) {
+
+    // Default circuit configuration
     circuit->type = SERIES;
+
+    // Circuit values
     circuit->supplyVoltage = 0.0;
     circuit->equivalentResistance = 0.0;
     circuit->totalCurrent = 0.0;
     circuit->totalPower = 0.0;
+
+    // No resistors yet
     circuit->resistorCount = 0;
 }
 
