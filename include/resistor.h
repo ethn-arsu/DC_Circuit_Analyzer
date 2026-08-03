@@ -3,7 +3,11 @@
 
 typedef struct{
     int id;
+
     double resistance;
+    double voltage;
+    double current;
+    double power;
 } Resistor;
 
 
