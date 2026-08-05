@@ -18,4 +18,10 @@ double solve_power(double voltage, double current);
 void analyze_series_circuit(Circuit *circuit);
 void analyze_parallel_circuit(Circuit *circuit);
 
+// Calculate voltage drop in a series circuit
+void calculate_series_voltage_drops(Circuit *circuit);
+
+// Calculate power in a series circuit
+void calculate_series_power(Circuit *circuit);
+
 #endif

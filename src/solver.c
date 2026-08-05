@@ -69,14 +69,35 @@ double solve_power(double voltage, double current) {
 void analyze_series_circuit(Circuit *circuit){
     circuit->equivalentResistance = solve_series_resistance(circuit);
     circuit->totalCurrent = solve_current(circuit->supplyVoltage, circuit->equivalentResistance);
+
+    calculate_series_voltage_drops(circuit);
+    calculate_series_power(circuit);
+
     circuit->totalPower = solve_power(circuit->supplyVoltage, circuit->totalCurrent);
 }
 
 // Void function for analyzing parallel circuit
 void analyze_parallel_circuit(Circuit *circuit){
     circuit->equivalentResistance = solve_parallel_resistance(circuit);
-
     circuit->totalCurrent = solve_current(circuit->supplyVoltage, circuit->equivalentResistance);
-
     circuit->totalPower = solve_power(circuit->supplyVoltage, circuit->totalCurrent);
+}
+
+// Void function to calculate series voltage drops
+void calculate_series_voltage_drops(Circuit *circuit){
+    int count = get_resistor_count(circuit);
+
+    for(int i = 0; i < count; i++){
+        circuit->resistors[i].voltage = solve_voltage(circuit->totalCurrent, circuit->resistors[i].resistance);
+    }
+}
+
+// Void function to calculate series power
+void calculate_series_power(Circuit *circuit){
+    int count = get_resistor_count(circuit);
+
+    for(int i = 0; i < count; i++){
+        circuit->resistors[i].current = circuit->totalCurrent;
+        circuit->resistors[i].power = solve_power(circuit->resistors[i].voltage, circuit->resistors[i].current);
+    }
 }

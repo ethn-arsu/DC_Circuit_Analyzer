@@ -39,5 +39,21 @@ int main(){
     printf("Total Current: %.4f A\n", circuit.totalCurrent);
     printf("Total Power: %.4f W\n", circuit.totalPower);
 
+    printf("\nPer-Resistor Results\n");
+    printf("---------------------------------------------\n");
+    printf("ID\tR(O)\tV(V)\tI(A)\tP(W)\n");
+    printf("---------------------------------------------\n");
+
+    for(int i = 0; i < get_resistor_count(&circuit); i++){
+        Resistor resistor = get_resistor(&circuit, i);
+
+        printf("%d\t%.2f\t%.4f\t%.4f\t%.4f\n",
+               resistor.id,
+               resistor.resistance,
+               resistor.voltage,
+               resistor.current,
+               resistor.power);
+    }
+
     return 0;
 }
