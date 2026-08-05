@@ -30,4 +30,7 @@ void calculate_parallel_currents(Circuit *circuit);
 // Calculate power in a parallel circuit
 void calculate_parallel_power(Circuit *circuit);
 
+// Performs an analysis of the circuit's type
+void analyze_circuit(Circuit *circuit);
+
 #endif

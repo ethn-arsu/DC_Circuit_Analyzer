@@ -21,13 +21,7 @@ int main(){
     add_resistor(&circuit, create_resistor(3, 330));
 
     // Analyze the circuit
-    if (circuit.type == SERIES){
-        analyze_series_circuit(&circuit);
-    }
-    else
-    {
-        analyze_parallel_circuit(&circuit);
-    }
+    analyze_circuit(&circuit);
 
     // Display results
     printf("=====================================\n");

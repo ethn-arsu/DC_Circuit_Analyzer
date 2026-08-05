@@ -130,3 +130,12 @@ void calculate_parallel_power(Circuit *circuit){
         circuit->resistors[i].power = solve_power(circuit->resistors[i].voltage, circuit->resistors[i].current);
     }
 }
+
+// Void function to analyze circuit type
+void analyze_circuit(Circuit *circuit){
+    if (circuit->type == SERIES){
+        analyze_series_circuit(circuit);
+    } else {
+        analyze_parallel_circuit(circuit);
+    }
+}
