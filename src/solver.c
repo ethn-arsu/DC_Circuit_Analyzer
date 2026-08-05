@@ -79,7 +79,17 @@ void analyze_series_circuit(Circuit *circuit){
 // Void function for analyzing parallel circuit
 void analyze_parallel_circuit(Circuit *circuit){
     circuit->equivalentResistance = solve_parallel_resistance(circuit);
-    circuit->totalCurrent = solve_current(circuit->supplyVoltage, circuit->equivalentResistance);
+    calculate_parallel_currents(circuit);
+    circuit->totalCurrent = 0.0;
+
+    int count = get_resistor_count(circuit);
+
+    for (int i = 0; i < count; i++){
+        circuit->totalCurrent += circuit->resistors[i].current;
+    }
+
+    calculate_parallel_power(circuit);
+
     circuit->totalPower = solve_power(circuit->supplyVoltage, circuit->totalCurrent);
 }
 
@@ -98,6 +108,25 @@ void calculate_series_power(Circuit *circuit){
 
     for(int i = 0; i < count; i++){
         circuit->resistors[i].current = circuit->totalCurrent;
+        circuit->resistors[i].power = solve_power(circuit->resistors[i].voltage, circuit->resistors[i].current);
+    }
+}
+
+// Void function to calculate parallel current
+void calculate_parallel_currents(Circuit *circuit){
+    int count = get_resistor_count(circuit);
+
+    for (int i = 0; i < count; i++){
+        circuit->resistors[i].voltage = circuit->supplyVoltage;
+        circuit->resistors[i].current = solve_current(circuit->supplyVoltage, circuit->resistors[i].resistance);
+    }
+}
+
+// Void function to calculate parallel power
+void calculate_parallel_power(Circuit *circuit){
+    int count = get_resistor_count(circuit);
+
+    for (int i = 0; i < count; i++){
         circuit->resistors[i].power = solve_power(circuit->resistors[i].voltage, circuit->resistors[i].current);
     }
 }

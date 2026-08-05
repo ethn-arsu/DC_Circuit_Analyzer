@@ -32,7 +32,7 @@ int main(){
     printf("       DC Circuit Analyzer\n");
     printf("=====================================\n\n");
 
-    printf("Circuit Type: %s\n", circuit.type == SERIES ? "Series" : "Parallel");
+    printf("Circuit Type: %s\n", circuit.type == PARALLEL ? "Series" : "Parallel");
     printf("Supply Voltage: %.2f V\n", circuit.supplyVoltage);
     printf("Number of Resistors: %d\n\n", get_resistor_count(&circuit));
     printf("Equivalent Resistance: %.2f ohms\n", circuit.equivalentResistance);

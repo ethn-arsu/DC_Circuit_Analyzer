@@ -24,4 +24,10 @@ void calculate_series_voltage_drops(Circuit *circuit);
 // Calculate power in a series circuit
 void calculate_series_power(Circuit *circuit);
 
+// Calculate current in a parallel circuit
+void calculate_parallel_currents(Circuit *circuit);
+
+// Calculate power in a parallel circuit
+void calculate_parallel_power(Circuit *circuit);
+
 #endif
