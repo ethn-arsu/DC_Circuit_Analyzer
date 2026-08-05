@@ -14,8 +14,9 @@ typedef struct {
     double equivalentResistance;
     double totalCurrent;
     double totalPower;
-    Resistor resistors[MAX_RESISTORS];
+    Resistor *resistors;
     int resistorCount;
+    int capacity;
 } Circuit;
 
 // Initialization
