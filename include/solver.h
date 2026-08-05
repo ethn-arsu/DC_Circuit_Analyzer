@@ -14,4 +14,8 @@ double solve_resistance(double voltage, double current);
 // Power
 double solve_power(double voltage, double current);
 
+// Complete circuit analysis
+void analyze_series_circuit(Circuit *circuit);
+void analyze_parallel_circuit(Circuit *circuit);
+
 #endif

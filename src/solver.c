@@ -60,7 +60,23 @@ double solve_resistance(double voltage, double current){
     return voltage / current;
 }
 
-// Solve for powerR
+// Solve for power
 double solve_power(double voltage, double current) {
     return voltage * current;
+}
+
+// Void function for analyzing series circuit
+void analyze_series_circuit(Circuit *circuit){
+    circuit->equivalentResistance = solve_series_resistance(circuit);
+    circuit->totalCurrent = solve_current(circuit->supplyVoltage, circuit->equivalentResistance);
+    circuit->totalPower = solve_power(circuit->supplyVoltage, circuit->totalCurrent);
+}
+
+// Void function for analyzing parallel circuit
+void analyze_parallel_circuit(Circuit *circuit){
+    circuit->equivalentResistance = solve_parallel_resistance(circuit);
+
+    circuit->totalCurrent = solve_current(circuit->supplyVoltage, circuit->equivalentResistance);
+
+    circuit->totalPower = solve_power(circuit->supplyVoltage, circuit->totalCurrent);
 }
