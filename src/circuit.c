@@ -60,3 +60,23 @@ int get_resistor_count(const Circuit* circuit) {
 Resistor get_resistor(const Circuit* circuit, int index) {
     return circuit->resistors[index];
 }
+
+double get_equivalent_resistance(const Circuit *circuit){
+    return circuit->equivalentResistance;
+}
+
+double get_total_current(const Circuit *circuit){
+    return circuit->totalCurrent;
+}
+
+double get_total_power(const Circuit *circuit){
+    return circuit->totalPower;
+}
+
+double get_supply_voltage(const Circuit *circuit){
+    return circuit->supplyVoltage;
+}
+
+CircuitType get_circuit_type(const Circuit *circuit){
+    return circuit->type;
+}

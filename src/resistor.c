@@ -17,3 +17,18 @@ Resistor create_resistor(int id, double resistance){
 double get_resistance(Resistor resistor){
     return resistor.resistance;
 }
+
+double get_voltage(Resistor resistor)
+{
+    return resistor.voltage;
+}
+
+double get_current(Resistor resistor)
+{
+    return resistor.current;
+}
+
+double get_power(Resistor resistor)
+{
+    return resistor.power;
+}

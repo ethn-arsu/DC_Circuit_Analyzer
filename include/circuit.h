@@ -32,6 +32,13 @@ double calculate_series_resistance(const Circuit *circuit);
 int get_resistor_count(const Circuit* circuit);
 Resistor get_resistor(const Circuit* circuit, int index);
 
+// Circuit result accessors
+double get_equivalent_resistance(const Circuit *circuit);
+double get_total_current(const Circuit *circuit);
+double get_total_power(const Circuit *circuit);
+double get_supply_voltage(const Circuit *circuit);
+CircuitType get_circuit_type(const Circuit *circuit);
+
 // Release memory
 void destroy_circuit(Circuit *circuit);
 
