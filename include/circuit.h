@@ -32,4 +32,7 @@ double calculate_series_resistance(const Circuit *circuit);
 int get_resistor_count(const Circuit* circuit);
 Resistor get_resistor(const Circuit* circuit, int index);
 
+// Release memory
+void destroy_circuit(Circuit *circuit);
+
 #endif

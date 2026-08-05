@@ -1,6 +1,7 @@
+#include <stdlib.h>
 #include "circuit.h"
 
-void initialize_circuit(Circuit *circuit) {
+void initialize_circuit(Circuit *circuit){
 
     // Default circuit configuration
     circuit->type = SERIES;
@@ -11,13 +12,29 @@ void initialize_circuit(Circuit *circuit) {
     circuit->totalCurrent = 0.0;
     circuit->totalPower = 0.0;
 
-    // No resistors yet
     circuit->resistorCount = 0;
+    circuit->capacity = 5;
+    circuit->resistors = malloc(circuit->capacity * sizeof(Resistor));
+}
+
+void destroy_circuit(Circuit *circuit){
+    free(circuit->resistors);
+    circuit->resistors = NULL;
+    circuit->resistorCount = 0;
+    circuit->capacity = 0;
 }
 
 int add_resistor(Circuit *circuit, Resistor resistor) {
-    if (circuit->resistorCount >= MAX_RESISTORS) {
-        return 0;
+    if (circuit->resistorCount >= circuit->capacity){
+        circuit->capacity *= 2;
+
+        Resistor *temp = realloc(circuit->resistors,circuit->capacity * sizeof(Resistor));
+
+        if (temp == NULL){
+            return 0;
+        }
+
+        circuit->resistors = temp;
     }
 
     circuit->resistors[circuit->resistorCount] = resistor;

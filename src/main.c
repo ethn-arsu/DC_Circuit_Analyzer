@@ -57,5 +57,7 @@ int main(){
                resistor.power);
     }
 
+    destroy_circuit(&circuit);
+
     return 0;
 }
