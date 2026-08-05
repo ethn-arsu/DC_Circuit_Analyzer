@@ -1,3 +1,8 @@
+// The program was initially conceived and developed in a procedural approach.
+// However, as the program evolved and the elements required from the UI mockup in MATLAB,
+// taking an object-oriented approach instead is more beneficial
+// as it allows different files to do their respective roles/functions.
+
 #include <stdio.h>
 #include "solver.h"
 
